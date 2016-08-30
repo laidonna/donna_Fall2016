@@ -1,10 +1,6 @@
-
-
-/* @author Donna Lai 
-   August 30, 2016
-   Temperature Convert -- This program converts Fahrenheit to Celsius. 
-*/
-
+// @author Donna Lai 
+// August 30, 2016
+// Temperature Convert -- This program converts Fahrenheit to Celsius. 
 public class FahrenheitToCelsius {
 
 	public static void main(String[] args) {
