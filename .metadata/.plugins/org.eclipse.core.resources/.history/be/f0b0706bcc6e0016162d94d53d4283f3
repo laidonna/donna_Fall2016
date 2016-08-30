@@ -1,0 +1,15 @@
+/**
+ * 
+ */
+
+/**
+ * @author Donna
+ *
+ */
+public class Calculate {
+	public double square(double number){
+		double answer; 
+		answer = number *number; 
+		return answer; 
+	}
+}

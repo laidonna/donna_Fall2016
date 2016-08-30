@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+
+/**
+ * @author Donna
+ *
+ */
+public class DoMath {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args){
+		Calculate.square(5); 
+	}
+	
+
+}

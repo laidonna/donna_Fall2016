@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+
+/**
+ * @author Donna
+ *
+ */
+public class DoMath {
+
+	/**
+	 * @param args
+	 */
+
+		// TODO Auto-generated method stub
+		Calculate.square(5); 
+
+	
+
+}
