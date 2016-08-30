@@ -24,13 +24,11 @@ public class DoMath {
 		double average3 = Calculate.average3(5.0, 6.0, 7.0);
 		System.out.println(average3);
 		
-		double toDegrees = Calculate.toRadians(180);
+		double toDegrees = Calculate.toRadians(30);
 		System.out.println(toDegrees);
 		
-		double toRadians = Calculate.toDegrees(4);
+		double toRadians = Calculate.toDegrees(180);
 		System.out.println(toRadians);
-		
-		
 		
 	}
 	

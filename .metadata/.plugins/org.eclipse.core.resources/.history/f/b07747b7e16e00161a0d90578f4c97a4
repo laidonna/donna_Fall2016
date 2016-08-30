@@ -41,6 +41,4 @@ public class Calculate {
 		answer = answer * rad;
 		return answer; 
 	}
-	
-//	public static double discriminant(double )
 }
