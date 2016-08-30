@@ -1,0 +1,12 @@
+
+public class PokemonArt {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("The world of Pikachu welcomes you!");
+		System.out.println("     /\\__/\\");
+		System.out.println("     (o^.^)");
+		System.out.println("   z(_(\")(\")");
+	}
+
+}

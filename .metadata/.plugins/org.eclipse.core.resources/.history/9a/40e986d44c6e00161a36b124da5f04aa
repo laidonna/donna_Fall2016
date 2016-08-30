@@ -1,0 +1,12 @@
+public class FahrenheitToCelsius {
+
+	public static void main(String[] args) {
+		double F = 32;
+		double half;
+		double C;
+		half = F - 32;
+		C = half * 5/9;
+		System.out.println(C);
+	}
+
+}

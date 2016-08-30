@@ -1,0 +1,4 @@
+#Mon Aug 29 19:56:55 PDT 2016
+__DEFAULT__=false
+org.eclipse.help.ui.localSearch.master=true
+expression=eclipse marketplace
