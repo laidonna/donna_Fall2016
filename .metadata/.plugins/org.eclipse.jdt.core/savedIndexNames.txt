@@ -5,7 +5,6 @@ INDEX VERSION 1.129+C:\Users\Donna\Documents\GitHub\donna_Fall2016\.metadata\.pl
 3890676705.index
 3174019598.index
 392419882.index
-3240577434.index
 2429456718.index
 1763995614.index
 1658438775.index
