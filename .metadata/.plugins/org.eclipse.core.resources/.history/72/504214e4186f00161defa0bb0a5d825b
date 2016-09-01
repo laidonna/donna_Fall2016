@@ -39,10 +39,6 @@ public class DoMath {
 		String toMixedNum = Calculate.toMixedNum(7,2);
 		System.out.println(toMixedNum);
 		
-		String foil = Calculate.foil(2, 3, 6, -7, "n");
-		System.out.println(foil);
-		
-		
 	}
 	
 

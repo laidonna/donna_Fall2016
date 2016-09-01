@@ -36,12 +36,8 @@ public class DoMath {
 		String toImproperFrac = Calculate.toImproperFrac(3, 1, 2);
 		System.out.println(toImproperFrac);
 		
-		String toMixedNum = Calculate.toMixedNum(7,2);
+		String toMixedNum = Calculate.toMixedNum(9,2);
 		System.out.println(toMixedNum);
-		
-		String foil = Calculate.foil(2, 3, 6, -7, "n");
-		System.out.println(foil);
-		
 		
 	}
 	

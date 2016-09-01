@@ -69,6 +69,6 @@ public class Calculate {
 		int thirdCoef  = b * c;
 		int fourthCoef = b * d;
 		int secAndThird = secondCoef + thirdCoef;
-		return firstCoef + x + "^2+" + secAndThird + x + fourthCoef; 
+		return firstCoef + x + "^2" + secAndThird + x + fourthCoef; 
 	}
 }

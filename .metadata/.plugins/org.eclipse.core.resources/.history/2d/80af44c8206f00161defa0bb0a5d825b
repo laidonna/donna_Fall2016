@@ -64,11 +64,6 @@ public class Calculate {
 	}
 	
 	public static String foil(int a, int b, int c, int d, String x){
-		int firstCoef = a * c;
-		int secondCoef = a * d;
-		int thirdCoef  = b * c;
-		int fourthCoef = b * d;
-		int secAndThird = secondCoef + thirdCoef;
-		return firstCoef + x + "^2+" + secAndThird + x + fourthCoef; 
+		
 	}
 }
