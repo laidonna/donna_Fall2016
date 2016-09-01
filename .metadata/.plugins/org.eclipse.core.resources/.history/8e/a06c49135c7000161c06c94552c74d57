@@ -47,9 +47,6 @@ public class DoMath {
 		
 		double absValue = Calculate.absValue(100);
 		System.out.println(absValue);
-		
-		double max = Calculate.max(1, 2);
-		System.out.println(max);
 	}
 	
 

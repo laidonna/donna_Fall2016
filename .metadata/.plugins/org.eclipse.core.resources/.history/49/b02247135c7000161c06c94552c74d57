@@ -87,12 +87,4 @@ public class Calculate {
 			return a - 2*a;
 		}
 	}
-	
-	public static int max(int a, int b){
-		if (a > b){
-			return a;
-		}else{
-			return b;
-		}
-	}
 }

@@ -45,11 +45,8 @@ public class DoMath {
 		Boolean isDivisibleby = Calculate.isDivisibleby(1, 2);
 		System.out.println(isDivisibleby);
 		
-		double absValue = Calculate.absValue(100);
+		double absValue = Calculate.absValue(-100);
 		System.out.println(absValue);
-		
-		double max = Calculate.max(1, 2);
-		System.out.println(max);
 	}
 	
 
