@@ -69,11 +69,7 @@ public class Calculate {
 		int thirdCoef  = b * c;
 		int fourthCoef = b * d;
 		int secAndThird = secondCoef + thirdCoef;
-		if (secAndThird < 0){
-			return firstCoef + x + "^2" + secAndThird + x + fourthCoef;
-		}else{
-			return firstCoef + x + "^2+" + secAndThird + x + fourthCoef;
-		}
+		return firstCoef + x + "^2+" + secAndThird + x + fourthCoef;
 	}
 	
 	public static Boolean isDivisibleby(int a, int b){
@@ -121,12 +117,8 @@ public class Calculate {
 	public static double round2(double a){
 		double stepOne = a * 100.0;
 		double stepTwo = stepOne + 0.5;
-		stepTwo = (int) stepTwo;
+		stepTwo = (int) stepOne;
 		double answer = stepTwo / 100.0;
 		return answer;
 	}
-	
-//	public static double exponent(double a, int b ){
-//		
-//	}
 }

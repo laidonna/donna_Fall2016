@@ -126,7 +126,7 @@ public class Calculate {
 		return answer;
 	}
 	
-//	public static double exponent(double a, int b ){
-//		
-//	}
+	public static double exponent(double a, int b ){
+		
+	}
 }
