@@ -113,12 +113,4 @@ public class Calculate {
 			return a;
 		}
 	}
-	
-	public static double round2(double a){
-		double stepOne = a * 100.0;
-		double stepTwo = stepOne + 0.5;
-		stepTwo = (int) stepTwo;
-		double answer = stepTwo / 100.0;
-		return answer;
-	}
 }

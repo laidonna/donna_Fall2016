@@ -56,9 +56,6 @@ public class DoMath {
 		
 		int min = Calculate.min(99, 98);
 		System.out.println(min);
-		
-		double round2 = Calculate.round2(42.999);
-		System.out.println(round2);
 	}
 	
 
