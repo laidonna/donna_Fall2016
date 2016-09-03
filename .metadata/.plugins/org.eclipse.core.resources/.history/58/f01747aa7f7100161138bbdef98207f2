@@ -9,7 +9,7 @@
 public class Calculate {
 	
 	public static double square(double num){
-		double answer = num * num; 
+		double answer = num *num; 
 		return answer; 
 	}
 	
@@ -45,8 +45,8 @@ public class Calculate {
 	}
 	
 	public static double discriminant(double a, double b, double c){
-		double bSquare  = b * b;
-		double answer = 4 * a * c *bSquare;
+		double bSquare  = b *b;
+		double answer = 4 * a *c *bSquare;
 		return answer;
 	}
 	
