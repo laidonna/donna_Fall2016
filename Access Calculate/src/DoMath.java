@@ -39,7 +39,7 @@ public class DoMath {
 		String toMixedNum = Calculate.toMixedNum(7,2);
 		System.out.println(toMixedNum);
 		
-		String foil = Calculate.foil(2, 3, -6, -7, "n");
+		String foil = Calculate.foil(2, 3, 6, -7, "n");
 		System.out.println(foil);
 		
 		Boolean isDivisibleby = Calculate.isDivisibleby(1, 2);
@@ -59,6 +59,9 @@ public class DoMath {
 		
 		double round2 = Calculate.round2(42.999);
 		System.out.println(round2);
+		
+		double exponent = Calculate.exponent(5,3);
+		System.out.println(exponent);
 	}
 	
 
