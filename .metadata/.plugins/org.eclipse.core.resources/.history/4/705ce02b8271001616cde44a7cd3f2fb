@@ -48,7 +48,7 @@ public class DoMath {
 		double absValue = Calculate.absValue(100);
 		System.out.println(absValue);
 		
-		double max = Calculate.max(-1, -2);
+		double max = Calculate.max(1, 2);
 		System.out.println(max);
 		
 		double max3 = Calculate.max(45, 456, 12);
@@ -60,12 +60,8 @@ public class DoMath {
 		double round2 = Calculate.round2(42.999);
 		System.out.println(round2);
 		
-		double exponent = Calculate.exponent(-5,4);
+		double exponent = Calculate.exponent(5,3);
 		System.out.println(exponent);
-		
-		int factorial = Calculate.factorial(3);
-		System.out.println(factorial);
-		
 	}
 	
 
