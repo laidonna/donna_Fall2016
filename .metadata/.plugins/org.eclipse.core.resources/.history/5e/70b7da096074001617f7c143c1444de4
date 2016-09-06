@@ -66,8 +66,6 @@ public class DoMath {
 		int factorial = Calculate.factorial(3);
 		System.out.println(factorial);
 		
-		Boolean isPrime = Calculate.isPrime(25);
-		System.out.println(isPrime);
 	}
 	
 

@@ -139,9 +139,10 @@ public class Calculate {
 	}
 	
 	public static Boolean isPrime(int a){
-//		if (Calculate.isDivisibleby(a, b))
-		{
-			
+		if (a % 2 != 0 && a != 2){
+			return true;
+		}else{
+			return false;
 		}
 	}
 }

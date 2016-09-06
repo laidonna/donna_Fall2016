@@ -131,17 +131,10 @@ public class Calculate {
 	}
 	
 	public static int factorial(int a){
-		int dog = 1;
-		for (int i = 1; i <= a; i++){
-			dog *= i;
+		int dog = a;
+		for (int i = 0; i < a; i++){
+			i*+;
 		}
 		return dog;
-	}
-	
-	public static Boolean isPrime(int a){
-//		if (Calculate.isDivisibleby(a, b))
-		{
-			
-		}
 	}
 }

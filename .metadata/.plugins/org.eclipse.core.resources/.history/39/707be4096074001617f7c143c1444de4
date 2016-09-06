@@ -137,11 +137,4 @@ public class Calculate {
 		}
 		return dog;
 	}
-	
-	public static Boolean isPrime(int a){
-//		if (Calculate.isDivisibleby(a, b))
-		{
-			
-		}
-	}
 }
