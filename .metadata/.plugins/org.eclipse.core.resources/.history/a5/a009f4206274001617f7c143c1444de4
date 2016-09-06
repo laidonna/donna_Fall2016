@@ -9,7 +9,7 @@
 public class Calculate {
 	
 	public static double square(double num){
-		double answer = num *num; 
+		double answer = num * num; 
 		return answer; 
 	}
 	
@@ -45,8 +45,8 @@ public class Calculate {
 	}
 	
 	public static double discriminant(double a, double b, double c){
-		double bSquare  = b *b;
-		double answer = 4 * a *c *bSquare;
+		double bSquare  = b * b;
+		double answer = 4 * a * c *bSquare;
 		return answer;
 	}
 	
@@ -103,6 +103,45 @@ public class Calculate {
 			return b;
 		}else{
 			return c;
+		}
+	}
+	
+	public static int min(int a, int b){
+		if (a > b){
+			return b;
+		}else{
+			return a;
+		}
+	}
+	
+	public static double round2(double a){
+		double stepOne = a * 100.0;
+		double stepTwo = stepOne + 0.5;
+		stepTwo = (int) stepTwo;
+		double answer = stepTwo / 100.0;
+		return answer;
+	}
+	
+	public static double exponent(double a, int b ){
+		double answer = a;
+		for( int i = 1; i < b; i++ ){
+			answer*=a;
+		}
+		return answer;
+	}
+	
+	public static int factorial(int a){
+		int dog = 1;
+		for (int i = 1; i <= a; i++){
+			dog *= i;
+		}
+		return dog;
+	}
+	
+	public static Boolean isPrime(int a){
+//		if (Calculate.isDivisibleby(a, b))
+		{
+			
 		}
 	}
 }
