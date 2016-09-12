@@ -132,7 +132,7 @@ public class Calculate {
 	
 	public static int factorial(int a){
 		int dog = 1;
-		for (int i = 1; i <= a; i++){
+		for (int i = 1; i <= a; i--){
 			dog *= i;
 		}
 		return dog;
@@ -145,5 +145,14 @@ public class Calculate {
 			}
 		}
 		return true;
+	}
+	public static int gcf(int a, int b){
+		while (a != 0 && b != 0){
+			int c = b;
+			b = a % b;
+			a = c;
+		}
+		int c = a + b;
+		return c;
 	}
 }
