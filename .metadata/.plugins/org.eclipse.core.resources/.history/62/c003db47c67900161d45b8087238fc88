@@ -157,10 +157,10 @@ public class Calculate {
 		return c;
 	}
 	
-//	public static double sqrt(double a){
-//		double b = ?;
-//		for (int i = 0; i < a/2; i++){
-//			a = a/b;
-//		}
-//	}
+	public static double sqrt(double a){
+		double b = ?;
+		for (int i = 0; i < a/2; i++){
+			a = a/b;
+		}
+	}
 }
