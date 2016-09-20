@@ -73,7 +73,9 @@ public class Calculate {
 	}
 	
 	public static Boolean isDivisibleby(int a, int b){
-		if (a % b == 0){
+		if (b == 0){
+			throw new IllegalArgumentException("You cant have 0 as a denominator!!!! *IMPLOSION of the UNIVERSE*");
+		}else if (a % b == 0){
 			return true;
 		}else{
 			return false;
@@ -157,10 +159,17 @@ public class Calculate {
 		return c;
 	}
 	
-//	public static double sqrt(double a){
-//		double b = ?;
-//		for (int i = 0; i < a/2; i++){
-//			a = a/b;
-//		}
-//	}
+	public static double sqrt(double a){
+		double squareRoot =  round2(Math.sqrt(a)); 
+		if ( a < 0){
+			throw new IllegalArgumentException("You can't square root a negative number, unicorn!");
+		}else{
+			return squareRoot;
+		}
+	}
+	
+	//public static double quadForm(double num){
+		
+	//}
+	
 }
