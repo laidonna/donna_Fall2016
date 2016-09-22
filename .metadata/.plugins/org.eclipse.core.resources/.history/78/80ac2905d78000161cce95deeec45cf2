@@ -46,7 +46,8 @@ public class Calculate {
 	
 	public static double discriminant(double a, double b, double c){
 		double bSquare  = b * b;
-		double answer = 4 * a * c *bSquare;
+		double fourAC = 4*a*c;
+		double answer = bSquare - fourAC;
 		return answer;
 	}
 	
@@ -73,7 +74,9 @@ public class Calculate {
 	}
 	
 	public static Boolean isDivisibleby(int a, int b){
-		if (a % b == 0){
+		if (b == 0){
+			throw new IllegalArgumentException("You cant have 0 as a denominator!!!! *IMPLOSION of the UNIVERSE*");
+		}else if (a % b == 0){
 			return true;
 		}else{
 			return false;
@@ -158,8 +161,41 @@ public class Calculate {
 	}
 	
 	public static double sqrt(double a){
-		double b = 1;
-		
+		double squareRoot =  round2(Math.sqrt(a)); 
+		if ( a < 0){
+			throw new IllegalArgumentException("You can't square root a negative number, unicorn!");
+		}else{
+			return squareRoot;
 		}
 	}
+	
+	public static String quadForm(int a, int b, int c){
+		String answer;
+		double x1; 
+		double x2;
+		int negB = b *-1;
+		int twoA = 2*a;
+		double discriminant = Calculate.discriminant(a, b, c);
+		if (discriminant > 0){
+		x1 = negB + Calculate.round2(Calculate.sqrt(discriminant));
+		x1 = Calculate.round2(x1/twoA);
+		
+		x2 = negB - Calculate.round2(Calculate.sqrt(discriminant));
+		x2 = Calculate.round2(x2/twoA);
+		
+		x1 = x1 * 100;
+		int x10 = (int) x1;
+		x2 = x2 * 100;
+		int x20 = (int) x2;
+		
+		int max = Calculate.max(x10, x20);
+		int min = Calculate.min(x10, x20);
+		
+		answer = min/100 + " and " + max/100;
+		return answer;
+		}else{
+			return "no real roots";
+		}
+	}
+	
 }

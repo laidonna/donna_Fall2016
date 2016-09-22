@@ -63,7 +63,7 @@ public class DoMath {
 		double exponent = Calculate.exponent(-5,4);
 		System.out.println(exponent);
 		
-		int factorial = Calculate.factorial(3);
+		int factorial = Calculate.factorial(-6);
 		System.out.println(factorial);
 		
 		Boolean isPrime = Calculate.isPrime(25);
@@ -71,6 +71,12 @@ public class DoMath {
 		
 		int gcf = Calculate.gcf(-512, -12);
 		System.out.println(gcf);
+		
+		double sqrt = Calculate.sqrt(16);
+		System.out.println(sqrt);
+		
+		String quadForm = Calculate.quadForm(600, 130, -15);
+		System.out.println(quadForm);
 	}
 	
 

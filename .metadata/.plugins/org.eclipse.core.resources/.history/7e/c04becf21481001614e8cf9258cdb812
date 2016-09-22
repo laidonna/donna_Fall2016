@@ -209,7 +209,7 @@ public class Calculate {
 		x1 = negB + Calculate.round2(Calculate.sqrt(discriminant));
 		x1 = Calculate.round2(x1/twoA);
 		
-		x2 = negB - (Calculate.sqrt(discriminant));
+		x2 = negB - Calculate.round2(Calculate.sqrt(discriminant));
 		x2 = Calculate.round2(x2/twoA);
 		
 //		x1 = x1 * 100000;
