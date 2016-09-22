@@ -42,7 +42,7 @@ public class DoMath {
 		String foil = Calculate.foil(2, 3, 6, -7, "n");
 		System.out.println(foil);
 		
-		Boolean isDivisibleby = Calculate.isDivisibleby(1, 0);
+		Boolean isDivisibleby = Calculate.isDivisibleby(1, 2);
 		System.out.println(isDivisibleby);
 		
 		double absValue = Calculate.absValue(100);
@@ -72,8 +72,11 @@ public class DoMath {
 		int gcf = Calculate.gcf(-512, -12);
 		System.out.println(gcf);
 		
-		double sqrt = Calculate.sqrt(-14);
+		double sqrt = Calculate.sqrt(14);
 		System.out.println(sqrt);
+		
+		String quadForm = Calculate.quadForm(1, 2, 3);
+		System.out.println(quadForm);
 	}
 	
 

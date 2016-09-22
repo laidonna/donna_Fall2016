@@ -46,7 +46,8 @@ public class Calculate {
 	
 	public static double discriminant(double a, double b, double c){
 		double bSquare  = b * b;
-		double answer = 4 * a * c *bSquare;
+		double fourAC = 4*a*c;
+		double answer = bSquare - fourAC;
 		return answer;
 	}
 	
@@ -168,8 +169,22 @@ public class Calculate {
 		}
 	}
 	
-	//public static double quadForm(double num){
+	public static String quadForm(int a, int b, int c){
+		String answer;
+		double x1; 
+		double x2;
+		int negB = b *-1;
+		int twoA = 2*a;
+		x1 = negB + Calculate.sqrt(Calculate.discriminant(a, b, c));
+		double firstX = x1/twoA;
+		x1 = Calculate.round2(firstX);
 		
-	//}
+		x2 = negB - Calculate.sqrt(Calculate.discriminant(a, b, c));
+		double secondX = x2/twoA;
+		x2 = Calculate.round2(secondX);
+		
+		answer = x1 + "and" + x2;
+		return answer;
+	}
 	
 }
