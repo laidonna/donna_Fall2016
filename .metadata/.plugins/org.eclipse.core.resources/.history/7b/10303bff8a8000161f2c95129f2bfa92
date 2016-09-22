@@ -75,7 +75,7 @@ public class DoMath {
 		double sqrt = Calculate.sqrt(14);
 		System.out.println(sqrt);
 		
-		String quadForm = Calculate.quadForm(6, 10, -5);
+		String quadForm = Calculate.quadForm(10, -36, -15);
 		System.out.println(quadForm);
 	}
 	

@@ -183,15 +183,8 @@ public class Calculate {
 		x2 = negB - Calculate.round2(Calculate.sqrt(discriminant));
 		x2 = Calculate.round2(x2/twoA);
 		
-		x1 = x1 * 100;
-		int x10 = (int) x1;
-		x2 = x2 * 100;
-		int x20 = (int) x2;
 		
-		int max = Calculate.max(x10, x20);
-		int min = Calculate.min(x10, x20);
-		
-		answer = min/100 + " and " + max/100;
+		answer = x1 + " and " + x2;
 		return answer;
 		}else{
 			return "no real roots";

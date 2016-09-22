@@ -177,21 +177,15 @@ public class Calculate {
 		int twoA = 2*a;
 		double discriminant = Calculate.discriminant(a, b, c);
 		if (discriminant > 0){
-		x1 = negB + Calculate.round2(Calculate.sqrt(discriminant));
-		x1 = Calculate.round2(x1/twoA);
+		x1 = negB + Calculate.sqrt(discriminant);
+		double firstX = x1/twoA;
+		x1 = Calculate.round2(firstX);
 		
-		x2 = negB - Calculate.round2(Calculate.sqrt(discriminant));
-		x2 = Calculate.round2(x2/twoA);
+		x2 = negB - Calculate.sqrt(discriminant);
+		double secondX = x2/twoA;
+		x2 = Calculate.round2(secondX);
 		
-		x1 = x1 * 100;
-		int x10 = (int) x1;
-		x2 = x2 * 100;
-		int x20 = (int) x2;
-		
-		int max = Calculate.max(x10, x20);
-		int min = Calculate.min(x10, x20);
-		
-		answer = min/100 + " and " + max/100;
+		answer = x1 + "and" + x2;
 		return answer;
 		}else{
 			return "no real roots";
