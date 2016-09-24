@@ -3,8 +3,7 @@
  */
 
 /**
- * @author Donna Lai 9/22/16
- * This class is to call the methods from the calculate library.
+ * @author Donna
  *
  */
 public class DoMath {

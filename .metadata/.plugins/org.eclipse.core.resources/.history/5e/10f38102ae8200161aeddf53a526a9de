@@ -3,13 +3,7 @@
  */
 
 /**
- * @author Donna Lai 9/23/16 
- * This class is a math library that contains methods that squares, averages, cubes, 
- * converts to Radians or degrees,finds the discriminant, converts from improper fractions 
- * to mixed numbers and vice versa, foils, determines if two numbers are divisible, finds 
- * the absolute values, finds the max or minimum, rounds to the tens place, finds the exponent, 
- * factorial, determines if a number is prime, finds the greatest common factor, the square root,
- * and is a quadratic formula. 
+ * @author Donna
  *
  */
 public class Calculate {
@@ -197,7 +191,7 @@ public class Calculate {
 	public static double sqrt(double num){
 		double squareRoot =  round2(Math.sqrt(num)); 
 		if ( num < 0){
-			throw new IllegalArgumentException("Error! You can't square root a negative number!");
+			throw new IllegalArgumentException("Error! You can't square root a negative number, unicorn!");
 		}else{
 			return squareRoot;
 		}
@@ -211,7 +205,6 @@ public class Calculate {
 		int negB = b *-1;
 		int twoA = 2*a;
 		double discriminant = Calculate.discriminant(a, b, c);
-		
 		if (discriminant >= 0){
 			x1 = negB + Calculate.sqrt(discriminant);
 			x1 = x1/twoA;
@@ -221,6 +214,7 @@ public class Calculate {
 		
 			double max = Calculate.round2(Calculate.max(x1, x2, -100000.0));
 			double min = Calculate.round2(Calculate.min(x1, x2));
+		
 
 			answer = max + " "+ min;
 			return answer;
@@ -228,6 +222,7 @@ public class Calculate {
 			return "no real roots";
 		}
 	}
+	
 
 // This is the min method that accepts doubles and returns a double used specifically for quadForm. 	
 	public static double min(double num1, double num2){
