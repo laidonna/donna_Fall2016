@@ -1,0 +1,44 @@
+
+/*
+ * Donna Lai
+ * 10/3/16
+ * This program accepts user input to calculate the 
+ * total of the even numbers and finds the max and min 
+ * all the numbers and the max ofjust the even numbers.
+ * 
+ */
+import java.util.Scanner;
+
+public class ProcessingNumbers {
+
+	public static void main(String[] args) {
+		int evenTotal = 0; 
+		int max = 0;
+		int min = 0;
+		int nextNum = 0;
+		int evenMax = 0;
+		int numNums;
+		Scanner userInput = new Scanner(System.in);
+		System.out.println("How many numbers are you going to input?");
+		numNums = userInput.nextInt();
+		for (int i = 1; i <= numNums; i++){
+			System.out.println("Please input a number. ");
+			nextNum = userInput.nextInt();
+			if(nextNum > max){
+				max = nextNum;
+			} else if (nextNum < min){
+				min = nextNum;
+			}
+			if(nextNum % 2 == 0){
+				evenTotal+=nextNum;
+			}
+			if(nextNum % 2 == 0){
+				if (nextNum > evenMax){
+					evenMax = nextNum;
+				}
+			}
+		}
+		System.out.println("Even total is "+ evenTotal + ". " +"The largest even number is " + evenMax + ". "+ "Max is " + max + ". "+ "Min is " + min +"." );
+	}
+
+}

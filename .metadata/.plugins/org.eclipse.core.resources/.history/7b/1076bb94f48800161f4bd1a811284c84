@@ -1,0 +1,40 @@
+
+/*
+ * 
+ * 
+ * 
+ * 
+ */
+import java.util.Scanner;
+
+public class ProcessingNumbers {
+
+	public static void main(String[] args) {
+		int evenTotal = 0; 
+		int max = 0;
+		int min = 0;
+		int nextNum = 0;
+		int evenMax = 0;
+		Scanner userInput = new Scanner(System.in);
+
+		while(nextNum != 00){
+			System.out.println("Please input a number. When finished input 00!!");
+			nextNum = userInput.nextInt();
+			if(nextNum > max){
+				max = nextNum;
+			} else if (nextNum < min){
+				min = nextNum;
+			}
+			if(nextNum % 2 == 0){
+				evenTotal+=nextNum;
+			}
+			if(nextNum % 2 == 0){
+				if (nextNum > evenMax){
+					evenMax = nextNum;
+				}
+			}
+		}
+		System.out.println("Even total is "+ evenTotal +"The largest even number is" + evenMax + "Max is " + max + "min is " + min );
+	}
+
+}
