@@ -141,17 +141,27 @@ public class Calculate {
 	//This method accepts a double and returns a value rounded to the tens place
 	public static double round2(double num){
 		double xBy100 = num * 100.0;
-		double xhalf = xBy100 + 0.5;
-		xhalf = (int) xhalf;
-		double answer = xhalf / 100.0;
-		return answer;
+		double xhalf;
+		double answer;
+		if (num > 0){
+			xhalf = xBy100 + 0.5;
+			xhalf = (int) xhalf;
+			answer = xhalf / 100.0;
+			return answer;
+		}else{
+			xhalf = xBy100 - 0.5;
+			xhalf = (int) xhalf;
+			answer = xhalf / 100.0;
+			return answer;
+		}
+
 	}
 	
 	//This method accepts a double (the base number) and an integer (the power) and returns the exponent value
 	public static double exponent(double base, int power ){
 		double answer = base;
 		if (power <= 0){
-			throw new IllegalArgumentException("Error! You can't have a power that is greater than 0. "
+			throw new IllegalArgumentException("Error! You can't have a power that is less than 0. "
 					+ "(Technically you could but I can't do it.:P)");
 		}
 		for( int i = 1; i < power; i++ ){
