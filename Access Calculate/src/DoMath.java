@@ -70,7 +70,7 @@ public class DoMath {
 		Boolean isPrime = Calculate.isPrime(25);
 		System.out.println(isPrime);
 		
-		int gcf = Calculate.gcf(-512, -12);
+		int gcf = Calculate.gcf(4, 12);
 		System.out.println(gcf);
 		
 		double sqrt = Calculate.sqrt(16);
