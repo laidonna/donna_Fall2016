@@ -9,18 +9,14 @@ public class Magpie2 {
 	public String getResponse(String statement) {
 		String response = "";
 		if (statement.trim().length() == 0){
-			response = "Um Okay whatever you say.";
+			response = "Bs";
 		} else if (findKeyword(statement, "no") >= 0) {
 			response = "Why so negative?";
-		} else if (findKeyword(statement, "mother") >= 0
-				|| findKeyword(statement, "father") >= 0
-				|| findKeyword(statement, "sister") >= 0
-				|| findKeyword(statement, "brother") >= 0) {
-			response = "Tell me more about your family.";
-		}else if( findKeyword(statement, "Mr.") >= 0){
-			response = "He sounds like a good teacher";
-		}else if( findKeyword(statement, "Ms.") >= 0){
-			response = "She sounds like a good teacher";
+		} else if (statement.indexOf("Dove") >= 0
+				|| statement.indexOf("Hensley") >= 0
+				|| statement.indexOf("Phillips") >= 0
+				|| statement.indexOf("Campbell") >= 0) {
+			response = "They sound like good teachers.";
 		} else {
 			response = getRandomResponse();
 		}
