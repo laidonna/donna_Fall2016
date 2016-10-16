@@ -1,4 +1,6 @@
-
+// Donna Lai
+// 10/16/16
+// 
 public class Magpie4 {
 	
 	//Get a default greeting and return a greeting
@@ -27,8 +29,10 @@ public class Magpie4 {
 		
 		// Paste Part 3 code here.  The method has new pieces that continue below and should flow from your previous code.
 		String response = "";
-		if (statement.trim().length() == 0){
+		statement = statement.trim();
+		if (statement.length() < 1){
 			response = "Um Okay whatever you say.";
+			
 		} else if (findKeyword(statement, "no") >= 0) {
 			response = "Why so negative?";
 		} else if (findKeyword(statement, "mother") >= 0
@@ -36,18 +40,34 @@ public class Magpie4 {
 				|| findKeyword(statement, "sister") >= 0
 				|| findKeyword(statement, "brother") >= 0) {
 			response = "Tell me more about your family.";
-		}else if( findKeyword(statement, "Mr.") >= 0){
-			response = "He sounds like a good teacher";
-		}else if( findKeyword(statement, "Ms.") >= 0){
-			response = "She sounds like a good teacher";
-		} else if (findKeyword(statement, "I want to", 0) >= 0) {
+		}else if ( findKeyword(statement, "Mr.") >= 0){
+			response = "He sounds like a good teacher. Yes please tell me more about him";
+		}else if (findKeyword(statement, "hi") >= 0){
+			response = "OMG You are super annoying.";
+		}else if ( findKeyword(statement, "Ms.") >= 0){
+			response = "She sounds like a good teacher. Yes please tell me more about her.";
+		}else if (findKeyword(statement, "wow") >= 0){
+			response = "Stop giving me sarcasm!";
+		}else if (findKeyword(statement, "unicorns") >= 0){
+			response = "Oooooh MAGICAL CREATURES are the BEST!";
+		} else if (findKeyword(statement, "I want to",0) >= 0) {
 			response = transformIWantToStatement(statement);
-		} else {
+		} else if(findKeyword(statement, "I want",0) >=0) {
 			// Look for a two word (you <something> me)
 			// pattern
+			response = transformIWantStatement(statement);
+		} else if (findKeyword(statement, "I", 0) >= 0){
+			int psn = findKeyword(statement, "I", 0);
+
+			if (((psn >= 0) && (findKeyword(statement, "you.", psn)) >= 0 || findKeyword(statement, "you", psn) >= 0)) {
+				response = transformIYouStatement(statement);
+			} else {
+				response = getRandomResponse();
+			}
+		} else {
 			int psn = findKeyword(statement, "you", 0);
 
-			if (psn >= 0 && findKeyword(statement, "me", psn) >= 0) {
+			if ((psn >= 0) && (findKeyword(statement, "me.", psn) >= 0 || findKeyword(statement, "me?", psn) >= 0)) {
 				response = transformYouMeStatement(statement);
 			} else {
 				response = getRandomResponse();
@@ -75,6 +95,18 @@ public class Magpie4 {
 		String restOfStatement = statement.substring(psn + 9).trim();
 		return "What would it mean to " + restOfStatement + "?";
 	}
+	
+	private String transformIWantStatement(String statement) {
+		// Remove the final period, if there is one
+		statement = statement.trim();
+		String lastChar = statement.substring(statement.length() - 1);
+		if (lastChar.equals(".")) {
+			statement = statement.substring(0, statement.length() - 1);
+		}
+		int psn = findKeyword(statement, "I want", 0);
+		String restOfStatement = statement.substring(psn + 6).trim();
+		return "Would you really be happy if you had " + restOfStatement + "?";
+	}
 
 	/**
 	 * Take a statement with "you <something> me" and transform it into
@@ -100,6 +132,21 @@ public class Magpie4 {
 		return "What makes you think that I " + restOfStatement + " you?";
 	}
 
+	private String transformIYouStatement(String statement) {
+		// Remove the final period, if there is one
+		statement = statement.trim();
+		String lastChar = statement.substring(statement.length() - 1);
+		if (lastChar.equals(".")) {
+			statement = statement.substring(0, statement.length() - 1);
+		}
+
+		int psnOfI= findKeyword(statement, "I", 0);
+		int psnOfYou = findKeyword(statement, "you", psnOfI + 1);
+
+		String restOfStatement = statement.substring(psnOfI + 1, psnOfYou)
+				.trim();
+		return "Why do you " + restOfStatement + " me?";
+	}
 	/**
 	 * Search for one word in phrase. The search is not case sensitive. This
 	 * method will check that the given goal is not a substring of a longer
@@ -116,9 +163,10 @@ public class Magpie4 {
 	 */
 	private int findKeyword(String statement, String goal, int startPos) {
 		String phrase = statement.trim();
+
 		// The only change to incorporate the startPos is in the line below
 		int psn = phrase.toLowerCase().indexOf(goal.toLowerCase(), startPos);
-
+		
 		// Refinement--make sure the goal isn't part of a word
 		while (psn >= 0) {
 			// Find the string of length 1 before and after the word
