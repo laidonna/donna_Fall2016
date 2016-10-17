@@ -62,7 +62,7 @@ public class Magpie4 {
 		}else if (findKeyword(statement, "unicorns") >= 0
 				|| (findKeyword(statement, "dragons") >= 0)
 				|| (findKeyword(statement, "narwhals") >= 0)){
-			response = "Oooooh MAGICAL CREATURES are the BEST!(Narwhals are real.)";
+			response = "Oooooh MAGICAL CREATURES are the BEST!(I know narwhals are real sheesh)";
 		} else if (findKeyword(statement, "I want to",0) >= 0) {
 			response = transformIWantToStatement(statement);
 		} else if(findKeyword(statement, "I want",0) >=0) {

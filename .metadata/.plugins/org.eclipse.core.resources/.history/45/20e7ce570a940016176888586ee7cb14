@@ -1,7 +1,6 @@
 // Donna Lai
-// Magpie Chatbot Lab
 // 10/16/16
-// APCS 1st period
+// 
 public class Magpie4 {
 	
 	//Get a default greeting and return a greeting
@@ -31,8 +30,8 @@ public class Magpie4 {
 		// Paste Part 3 code here.  The method has new pieces that continue below and should flow from your previous code.
 		String response = "";
 		statement = statement.trim();
-		if (statement.length() == 0){
-			response = "Um okay don't talk to me then. :(";
+		if (statement.length() < 1){
+			response = "Um Okay whatever you say.";
 			
 		} else if (findKeyword(statement, "no") >= 0) {
 			response = "Why so negative?";
@@ -41,28 +40,16 @@ public class Magpie4 {
 				|| findKeyword(statement, "sister") >= 0
 				|| findKeyword(statement, "brother") >= 0) {
 			response = "Tell me more about your family.";
-		}else if ( findKeyword(statement, "Mr.") >= 0 
-				|| ( findKeyword(statement, "Mr") >= 0)){
+		}else if ( findKeyword(statement, "Mr.") >= 0){
 			response = "He sounds like a good teacher. Yes please tell me more about him";
 		}else if (findKeyword(statement, "hi") >= 0){
 			response = "OMG You are super annoying.";
-		}else if ( findKeyword(statement, "Ms.") >= 0
-				|| ( findKeyword(statement, "Mrs.") >= 0)
-				|| ( findKeyword(statement, "Ms") >= 0)
-				|| ( findKeyword(statement, "Mrs") >= 0)){
+		}else if ( findKeyword(statement, "Ms.") >= 0){
 			response = "She sounds like a good teacher. Yes please tell me more about her.";
 		}else if (findKeyword(statement, "wow") >= 0){
 			response = "Stop giving me sarcasm!";
-		}else if (findKeyword(statement, "thanks") >= 0 
-				|| (findKeyword(statement, "thank") >= 0)
-				|| (findKeyword(statement, "hey") >= 0)
-				|| (findKeyword(statement, "corn") >= 0)
-				|| (findKeyword(statement, "chocolate") >= 0)){
-			response = "Shut up.";
-		}else if (findKeyword(statement, "unicorns") >= 0
-				|| (findKeyword(statement, "dragons") >= 0)
-				|| (findKeyword(statement, "narwhals") >= 0)){
-			response = "Oooooh MAGICAL CREATURES are the BEST!(Narwhals are real.)";
+		}else if (findKeyword(statement, "unicorns") >= 0){
+			response = "Oooooh MAGICAL CREATURES are the BEST!";
 		} else if (findKeyword(statement, "I want to",0) >= 0) {
 			response = transformIWantToStatement(statement);
 		} else if(findKeyword(statement, "I want",0) >=0) {
