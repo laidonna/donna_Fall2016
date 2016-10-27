@@ -33,8 +33,14 @@ public class Split
 	}
 	public static String sandwichCutter(String sandwichStuffs){
  		String[] sandwichStuff = sandwichStuffs.split("bread");
- 		return sandwichStuff[1];
- 	}
+ 		
+ 		int numOfBreads = 0; 
+// 		int firstBread = sandwichStuffs.indexOf("bread");
+// 		for(int i = firstBread; i < sandwichStuff.length; i++){
+// 			if(sandwo)
+// 		}
+// 		
+// 	}
 
 }
 
