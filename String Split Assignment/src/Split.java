@@ -1,11 +1,9 @@
 import java.util.*;
 
 
-public class Split 
-{
+public class Split{
 
-	public static void main(String[] args) 
-	{
+	public static void main(String[] args){
 		//String.split();
 		//It's a method that acts on a string, <StringName>.split(<String sp>);
 		//Where sp is the string where the string splits
@@ -17,7 +15,8 @@ public class Split
 		
 		//play around with String.split! what happens if you "I reallyreally like apples".split("really") ?
 		
-		System.out.println(sandwichCutter("applespineapplesbreadlettustomatobaconmayohambreadcheese"));
+		sandwichCutter("applespineapplesbreadlettustomatobaconmayohambreadcheese");
+		sandwichCutter("applesbreadbreadapples");
 		//Your task:
 		/*Write a method that take in a string like "applespineapplesbreadlettustomatobaconmayohambreadcheese" describing a sandwich
 		 * use String.split to split up the sandwich by the word "bread" and return what's in the middle of the sandwich and ignores what's on the outside
@@ -31,17 +30,33 @@ public class Split
 		*/
 
 	}
-	public static String sandwichCutter(String sandwichStuffs){
- 		String[] sandwichStuff = sandwichStuffs.split("bread");
- 		
- 		int numOfBreads = 0; 
-// 		int firstBread = sandwichStuffs.indexOf("bread");
-// 		for(int i = firstBread; i < sandwichStuff.length; i++){
-// 			if(sandwo)
-// 		}
-// 		
-// 	}
+	public static void sandwichCutter(String sandwich){
+ 		String[] sandwichInside = sandwich.split("bread");
 
+ 		if (sandwich.indexOf("bread") == 0){
+ 			System.out.println("Sandwich not found!!");
+ 		}else if(sandwich.indexOf("bread") > 0){
+ 			for (int i = 1; i < sandwichInside.length-1; i++){
+ 				System.out.print(sandwichInside[i]);
+ 			}
+ 			
+ 		//}else if (sandwich.indexOf("bread")){
+ 			
+ 		}else{
+ 			System.out.println("Sandwich not found!!");
+ 		}
+ 		String bread = sandwich.substring(sandwich.indexOf("bread")+5);
+	System.out.println(Arrays.toString(sandwichInside));
+	System.out.println(bread);
+	}
+	
+	// issues: three breads, no bread, one on front, one on back, two breads with nothing
+	
+	
+	
+	
+	
+	
 }
 
 
