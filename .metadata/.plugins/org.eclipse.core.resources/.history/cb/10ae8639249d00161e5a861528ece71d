@@ -1,0 +1,16 @@
+
+public class LotsOfCopies {
+
+	public static void main(String[] args){
+		int num = 7;
+		String strMain = "APCS";
+		int [] arrMain = {1,2,3,4,5};	
+		System.out.println(ChangeMe( num,strMain, arrMain));
+				
+	}
+	public static void ChangeMe(int x, String str, int[] arr){
+		x = 5; 
+		str = "hello";
+		//arr = {1,2,3,4,8};
+	}
+}
