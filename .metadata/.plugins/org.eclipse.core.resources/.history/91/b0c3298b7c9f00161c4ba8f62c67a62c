@@ -6,17 +6,17 @@ public class LotsOfCopies {
 		String strMain = "APCS";
 		int [] arrMain = {1,2,3,4,5};	
 		//System.out.println(arrMain);
-		System.out.println(num);
+		ChangeMe( num
+				);
 		System.out.println(num);
 		System.out.println(strMain);
 		System.out.println(arrMain);
 				
 	}
-//	public static int ChangeMe(int ar){
-//		int b;
-//		a = 5; 
-//		b = a;
-//		a = 7;
-//		return b;
-//	}
+	public static void ChangeMe(int a){
+		int b;
+		a = 5; 
+		b = a;
+		a = 7;
+	}
 }
