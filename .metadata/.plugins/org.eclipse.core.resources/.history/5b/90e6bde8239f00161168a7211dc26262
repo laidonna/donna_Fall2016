@@ -19,7 +19,7 @@ public class Split{
 		spaceSandwich("apples pineapples bread bread lettus tomato bacon mayo ham cheese");
 		spaceSandwich("bread lettus tomato bacon mayo ham bread cheese aplles");
 	}
-	 //This method finds all of the edge tests and possibilities sandwiches can be constructed and returns corresponding values
+	
 	public static void sandwichCutter(String sandwich){
  		String[] sandwichInside = sandwich.split("bread");
  		String breadAndAfter = sandwich.substring(sandwich.indexOf("bread")+5);
@@ -50,7 +50,6 @@ public class Split{
  		System.out.println(Arrays.toString(sandwichInside));
 	}
 	
-	//This method does the same as sandwichCutter but can accomodate for input with spaces
 	public static void spaceSandwich (String sandwich){
 		String [] noSpaces = sandwich.split("  ");
 		sandwichCutter(Arrays.toString(noSpaces));

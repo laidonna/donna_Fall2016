@@ -7,19 +7,19 @@ import java.util.*;
 public class Split{
 
 	public static void main(String[] args){
-		sandwichCutter("applespineapplesbreadlettustomatobaconmayohambreadcheese");
-		sandwichCutter("applesbreadapples");
-		sandwichCutter("applespineapplesbreadlettustomatobaconmayohambread");
-		sandwichCutter("applespineapplesbreadbreadlettustomatobaconmayohamcheese");
-		sandwichCutter("breadlettustomatobaconmayohambreadcheeseaplles");
+		sandwichCutter("1applespineapplesbreadlettustomatobaconmayohambreadcheese");
+		sandwichCutter("2applesbreadapples");
+		sandwichCutter("3applespineapplesbreadlettustomatobaconmayohambread");
+		sandwichCutter("4applespineapplesbreadbreadlettustomatobaconmayohamcheese");
+		sandwichCutter("bread5lettustomatobaconmayohambreadcheeseaplles");
 		
 		spaceSandwich("1apples pineapples bread lettus tomato bacon mayo ham bread cheese");
-		spaceSandwich("apples bread apples");
-		spaceSandwich("apples pineapples bread lettus tomato bacon mayo ham bread");
-		spaceSandwich("apples pineapples bread bread lettus tomato bacon mayo ham cheese");
-		spaceSandwich("bread lettus tomato bacon mayo ham bread cheese aplles");
+		spaceSandwich("2apples bread apples");
+		spaceSandwich("3apples pineapples bread lettus tomato bacon mayo ham bread");
+		spaceSandwich("4apples pineapples bread bread lettus tomato bacon mayo ham cheese");
+		spaceSandwich("bread 5lettus tomato bacon mayo ham bread cheese aplles");
 	}
-	 //This method finds all of the edge tests and possibilities sandwiches can be constructed and returns corresponding values
+	
 	public static void sandwichCutter(String sandwich){
  		String[] sandwichInside = sandwich.split("bread");
  		String breadAndAfter = sandwich.substring(sandwich.indexOf("bread")+5);
@@ -50,7 +50,6 @@ public class Split{
  		System.out.println(Arrays.toString(sandwichInside));
 	}
 	
-	//This method does the same as sandwichCutter but can accomodate for input with spaces
 	public static void spaceSandwich (String sandwich){
 		String [] noSpaces = sandwich.split("  ");
 		sandwichCutter(Arrays.toString(noSpaces));

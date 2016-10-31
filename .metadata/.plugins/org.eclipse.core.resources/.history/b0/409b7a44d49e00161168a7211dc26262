@@ -1,0 +1,84 @@
+import java.util.*;
+
+
+public class Split{
+
+	public static void main(String[] args){
+		//String.split();
+		//It's a method that acts on a string, <StringName>.split(<String sp>);
+		//Where sp is the string where the string splits
+		//And it returns an array
+		// Example: "I like apples!".split(" "); 
+		//		it will split at spaces and return an array of ["I","like","apples!"]
+		// Example 2: "I really like really red apples"split("really")
+		//		it will split at the word "really" and return an array of ["I "," like "," apples!"]
+		
+		//play around with String.split! what happens if you "I reallyreally like apples".split("really") ?
+		
+		sandwichCutter("applespineapplesbreadlettustomatobaconmayohambreadcheese");
+		sandwichCutter("applesbreadapples");
+		sandwichCutter("applespineapplesbreadlettustomatobaconmayohambread");
+		sandwichCutter("applespineapplesbreadbreadlettustomatobaconmayohamcheese");
+		//Your task:
+		
+		/*Write a method that take in a string like "applespineapplesbreadlettustomatobaconmayohambreadcheese" describing a sandwich
+		 * use String.split to split up the sandwich by the word "bread" and return what's in the middle of the sandwich and ignores what's on the outside
+		 * What if it's a fancy sandwich with multiple pieces of bread?
+		*/
+		
+		//Your task pt 2:
+		/*Write a method that take in a string like "apples pineapples bread lettus tomato bacon mayo ham bread cheese" describing a sandwich
+		 * use String.split to split up the sandwich at the spaces, " ", and return what's in the middle of the sandwich and ignores what's on the outside
+		 * Again, what if it's a fancy sandwich with multiple pieces of bread?
+		*/
+
+	}
+	public static void sandwichCutter(String sandwich){
+ 		String[] sandwichInside = sandwich.split("bread");
+ 		String breadAndMore = sandwich.substring(sandwich.indexOf("bread")+5);
+ 		if (sandwich.indexOf("bread") < 0){
+ 			System.out.println("Sandwich not found!!");
+ 		} else if (breadAndMore.indexOf("bread") < 0){
+ 			System.out.println("Sandwich not found!!");
+ 		}
+ 		
+ 		if(sandwich.indexOf("bread") > 0){
+ 			for (int i = 1; i < sandwichInside.length-1; i++){
+ 				System.out.println(sandwichInside[i]);
+ 			}
+ 		} else if (sandwich.indexOf("bread") > 0 && breadAndMore.equals("")){
+ 			for (int i = 1; i < sandwichInside.length; i++){
+ 				System.out.println(sandwichInside[i]);
+ 			}
+ 		} else if (breadAndMore.equals("")){
+ 			for (int i = 1; i < sandwichInside.length; i++){
+ 				System.out.println(sandwichInside[i]);
+ 			}
+ 		}
+ 		
+ 		
+ 		System.out.println(Arrays.toString(sandwichInside));
+	
+
+	}
+	
+	// issues: three breads, no bread, one on front, one on back, two breads with nothing
+	
+	
+	
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
