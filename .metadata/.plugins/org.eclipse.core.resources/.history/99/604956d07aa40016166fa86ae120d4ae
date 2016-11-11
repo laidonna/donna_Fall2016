@@ -1,0 +1,77 @@
+/**
+ * @author Donna Lai
+ * APCS 1st period
+ * Array Lab 3
+ */ 
+import java.util.Arrays;
+
+public class ArraysLab3{
+
+	public static int[] sum(int[] arr1, int[] arr2){
+		assert (arr1.length > 0);
+		assert (arr2.length > 0);
+		assert (arr1.length == arr2.length);
+		for(int i = 0; i < arr1.length; i++){
+			arr1[i] += arr2[i]; 
+		}
+		return arr1;
+	}
+	
+	public static int[] append(int[] arr, int num){
+		assert (arr.length > 0);
+		int[] arr2 = new int[arr.length+1];
+		for (int i = 0; i < arr.length; i++){
+			arr2[i] = arr[i];
+		}
+		arr2[arr.length] = num;
+		return arr2;
+	}
+	
+	public static int[] remove(int[] arr, int idx){
+		assert (arr.length >= 2);
+		int[] arr2 = new int[arr.length-1];
+		for (int i = 0; i <idx; i++){
+			arr2[i] = arr[i];
+		}
+		for(int i = 1 + idx; i<arr.length; i++){
+			arr2[i] = arr[i];
+		}
+		return arr2;
+	}
+	
+	public static int sumEven(int[] arr){
+		assert (arr.length > 0);
+		int evenTotal = 0; 
+		for (int i = 0; i <arr.length; i+=2){
+			evenTotal+=arr[i];
+		}
+		return evenTotal;
+	}
+	
+	public static void rotateRight(int[] arr){
+		assert (arr.length > 0);
+		int tempLast = arr[arr.length-1];
+		for (int i = arr.length -1; i >0; i--){
+			arr[i] = arr[i -1];
+		}
+		arr[0] = tempLast;
+		
+	}
+	
+	public static void main(String[] args){
+		int[] a1 = {5, 10, 15, 20, 25, 30, 35, 40};
+		int[] a2 = {7, 14, 21, 28, 35, 42, 49, 56};
+		int appendnum = 200;
+		int removeidx = 5;
+		int[] sumArr = sum(a1, a2);
+		int[] appendArr = append(a1, appendnum);
+		int[] removeArr = remove(a2, removeidx);
+		int sumOfEvens = sumEven(appendArr);
+		rotateRight(a1);	
+		System.out.println(Arrays.toString(sumArr));
+		System.out.println(Arrays.toString(appendArr));
+		System.out.println(Arrays.toString(removeArr));
+		System.out.println(sumOfEvens);
+		System.out.println(Arrays.toString(a1));
+	}
+}

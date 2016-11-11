@@ -1,4 +1,4 @@
-package arrays_materials;
+//package arrays_materials;
 
 import static org.junit.Assert.*;
 
