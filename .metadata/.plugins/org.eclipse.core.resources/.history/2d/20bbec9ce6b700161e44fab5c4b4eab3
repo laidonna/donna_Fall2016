@@ -52,9 +52,7 @@ public class FracCalc {
         	numerator = Integer.parseInt(operand1.substring(0, operand1.indexOf("/")));
 			denom = Integer.parseInt(operand1.substring(operand1.indexOf("/")+1));
     	}else if(!(operand1.indexOf("/ ") > 0)){
-    		wholeNum = Integer.parseInt(operand1.substring(0, operand1.indexOf("_")));
-//    		numerator = 0;
-//    		denom = 1;
+    		wholeNum = Integer.parseInt(operand1.substring(0, operand1.indexOf(operator)));
     	}else{
     		numerator = Integer.parseInt(operand1.substring(operand1.indexOf("_")+1, operand1.indexOf("/")));
     		denom = Integer.parseInt(operand1.substring(operand1.indexOf("/")+1));
