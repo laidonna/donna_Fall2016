@@ -1,6 +1,7 @@
 package fracCalc;
 
 import java.util.Scanner;
+import java.util.*;
 
 public class FracCalc {
 
@@ -21,40 +22,41 @@ public class FracCalc {
         String operand1 ="";
         String operator ="";
         String operand2 ="";
-        
+        String fracSum = null;
         if(input.indexOf(" + ") > 0){
-        	operand1 = input.substring(0, input.indexOf("+"));
-        	operator = "+";
+        	operand1 = input.substring(0, input.indexOf("+")-1);
+        	operator = "  +";
         	operand2 = input.substring(input.indexOf("+") +2);
-        } else if (input.indexOf(" - ") > 0){
-        	operand1 = input.substring(0, input.indexOf("-"));
-        	operator = "-";
+        } else if (input.indexOf(" - ") > 1){
+        	operand1 = input.substring(0, input.indexOf("-")-1);
+        	operator = " - ";
         	operand2 = input.substring(input.indexOf("-") +2);
-        } else if (input.indexOf(" /")>0){
-        	operand1 = input.substring(0, input.indexOf("/"));
-        	operator = "/";
+        } else if (input.indexOf(" / ")>0){
+        	operand1 = input.substring(0, input.indexOf("/")-1);
+        	operator = " / ";
         	operand2 = input.substring(input.indexOf("/") +2);
         } else {
-        	operand1 = input.substring(0, input.indexOf("*"));
-        	operator = "*";
+        	operand1 = input.substring(0, input.indexOf("*")-1);
+        	operator = " * ";
         	operand2 = input.substring(input.indexOf("*") +2);
         }
         
-        int denom =1;
-        int numerator =0;
-        int wholeNum =0;
+        int denom;
+        int numerator;
+        int wholeNum;
         
-        int denom2 =1;
-        int numerator2 =0;
-        int wholeNum2 =0;
+        int denom2;
+        int numerator2;
+        int wholeNum2;
         
-        if ((operand1.indexOf("/") >  0)&& !(operand1.indexOf("_") > 0) ){
+        if ((operand1.indexOf("/") >  0) && !(operand1.indexOf("_") > 0) ){
         	numerator = Integer.parseInt(operand1.substring(0, operand1.indexOf("/")));
 			denom = Integer.parseInt(operand1.substring(operand1.indexOf("/")+1));
-    	}else if(!(operand1.indexOf("/ ") > 0)){
+			wholeNum = 0;
+    	}else if(!(operand1.indexOf("/") > 0)){
     		wholeNum = Integer.parseInt(operand1.substring(0, operand1.indexOf("_")));
-//    		numerator = 0;
-//    		denom = 1;
+    		numerator = 0;
+    		denom = 1;
     	}else{
     		numerator = Integer.parseInt(operand1.substring(operand1.indexOf("_")+1, operand1.indexOf("/")));
     		denom = Integer.parseInt(operand1.substring(operand1.indexOf("/")+1));
@@ -70,15 +72,70 @@ public class FracCalc {
     		numerator2 = 0;
     		denom2 = 1;
     	}else{	
-    		wholeNum2 = Integer.parseInt(operand2.substring(0, operand2.indexOf("_")));
             numerator2 = Integer.parseInt(operand2.substring(operand2.indexOf("_")+1,operand2.indexOf("/")));
             denom2 = Integer.parseInt(operand2.substring(operand2.indexOf("/")+1));	
+            wholeNum2 = Integer.parseInt(operand2.substring(0, operand2.indexOf("_")));
     	}
-        int fracArr[] = {wholeNum, numerator, denom};
-        int fracArr2[] = {wholeNum2, numerator2, denom2};
-        return "whole:" + wholeNum2 + " numerator:" + numerator2 + " denominator:" + denom2;
+        int[] fracArr = toImproperFrac(wholeNum, numerator, denom);
+        int[] fracArr2 = toImproperFrac(wholeNum2, numerator2, denom2);
+        int[] firstFrac = commonDenom(fracArr, denom2);
+    	int[] secFrac = commonDenom(fracArr2, denom);
+    	
+        if (operator == " + "){
+        	fracSum = addFrac(firstFrac, secFrac);
+        } else if (operator == " * "){
+        	fracSum = multiplyFrac(fracArr, fracArr2);
+        } else if (operator == " / "){ //has MAJOR ISSUES
+        	fracSum = divideFrac(fracArr, fracArr2);
+        } else if (operator == " - "){
+        	fracSum = subtractFrac(firstFrac, secFrac); // MO ISSUES
+        } else {
+        	return " Error: You must have done something wrong! Your operators are messed up.";
+        }
+		return fracSum;
+       
+        
     }
-//    public static String toImproperFrac (int whole, int numerator, int denominator){
-//    	
-//    }
+    public static int[] toImproperFrac (int whole, int numerator, int denominator){
+    	System.out.println("whole:" + whole);
+    	System.out.println("denom:" + denominator);
+    	System.out.println("numer:" + numerator);
+    	int denomAndWhole = denominator*whole;
+    	//System.out.println("denom and whole:" + denomAndWhole);
+		numerator = denomAndWhole + numerator; 
+		System.out.println("numer: "+ numerator + " denom:" + denominator);
+		int[] improperFracArr = {numerator, denominator};
+		return improperFracArr;
+    }
+    
+    public static String multiplyFrac (int[] fracArr, int[] fracArr2){
+    	int numerator = fracArr[0] * fracArr2[0];
+    	int denom = fracArr[1] * fracArr2[1];
+    	return numerator + "/" + denom;
+    }
+    
+    public static String addFrac (int[] fracArr, int[] fracArr2){
+    	int numerator = fracArr[0] + fracArr2[0];
+    	int denom = fracArr[1];
+    	return numerator + "/" + denom;
+    }
+    
+    public static String subtractFrac(int[] fracArr, int[] fracArr2){
+    	int numerator = fracArr[0] - fracArr2[0];
+    	int denom = fracArr[1];
+    	return numerator + "/" + denom;
+    }
+    
+    public static String divideFrac (int[] fracArr, int[] fracArr2){
+    	int numerator = fracArr[0] * fracArr2[1];
+    	int denom = fracArr[1] * fracArr2[0];
+    	return numerator + "/" + denom;
+    }
+    
+    public static int[] commonDenom (int [] fracArr, int commonDenominator){
+    	int newNumer = fracArr[0] * commonDenominator; 
+    	int newDenom = fracArr[1] * commonDenominator;
+    	int[] commonDen = {newNumer, newDenom};
+    	return commonDen;
+    }
 }
