@@ -23,34 +23,23 @@ public class FracCalc {
         String operator ="";
         String operand2 ="";
         String fracSum = null;
-        // String split through spaces
-        String [] fracParts = input.split(" ");
-        operand1 = fracParts[0];
-        operator = fracParts[1];
-        operand2 = fracParts[2];
-        
-        operand1 = operand1.trim(); 
-        operator = operator.trim();
-        operand2 = operand2.trim();
-        
-        System.out.println(operator);
-//        if(input.indexOf(" + ") > 0){
-//        	operand1 = input.substring(0, input.indexOf("+")-1);
-//        	operator = " + ";
-//        	operand2 = input.substring(input.indexOf("+") +2);
-//        } else if (input.indexOf(" - ") > 1){
-//        	operand1 = input.substring(0, input.indexOf(" -")-1);
-//        	operator = " - ";
-//        	operand2 = input.substring(input.indexOf(" -") +2);
-//        } else if (input.indexOf(" / ")>0){
-//        	operand1 = input.substring(0, input.indexOf(" /")-1);
-//        	operator = " / ";
-//        	operand2 = input.substring(input.indexOf(" /") +2);
-//        } else {
-//        	operand1 = input.substring(0, input.indexOf("*")-1);
-//        	operator = " * ";
-//        	operand2 = input.substring(input.indexOf("*") +2);
-//        }
+        if(input.indexOf(" + ") > 0){
+        	operand1 = input.substring(0, input.indexOf("+")-1);
+        	operator = " + ";
+        	operand2 = input.substring(input.indexOf("+") +2);
+        } else if (input.indexOf(" - ") > 1){
+        	operand1 = input.substring(0, input.indexOf("-")-1);
+        	operator = " - ";
+        	operand2 = input.substring(input.indexOf("-") +2);
+        } else if (input.indexOf(" / ")>0){
+        	operand1 = input.substring(0, input.indexOf(" /")-1);
+        	operator = " / ";
+        	operand2 = input.substring(input.indexOf("/") +2);
+        } else {
+        	operand1 = input.substring(0, input.indexOf("*")-1);
+        	operator = " * ";
+        	operand2 = input.substring(input.indexOf("*") +2);
+        }
         
         int denom;
         int numerator;
@@ -92,13 +81,13 @@ public class FracCalc {
         int[] firstFrac = commonDenom(fracArr, denom2);
     	int[] secFrac = commonDenom(fracArr2, denom);
     	
-        if (operator.equals("+")){
+        if (operator == " + "){
         	fracSum = addFrac(firstFrac, secFrac);
-        } else if (operator.equals("*")){
+        } else if (operator == " * "){
         	fracSum = multiplyFrac(fracArr, fracArr2);
-        } else if (operator.equals("/")){ //i
+        } else if (operator == " / "){ //i
         	fracSum = divideFrac(fracArr, fracArr2);
-        } else if (operator.equals("-")){
+        } else if (operator == " - "){
         	fracSum = subtractFrac(firstFrac, secFrac); // i
         } else {
         	return " Error: You must have done something wrong! Your operators are messed up.";
