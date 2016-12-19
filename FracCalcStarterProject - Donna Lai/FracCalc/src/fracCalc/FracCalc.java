@@ -15,6 +15,7 @@ public class FracCalc {
     	System.out.println("Please input the equation you want answered.");
     	String equation = input.nextLine();
     	while(!equation.equals("quit")){
+
     		System.out.println(produceAnswer(equation));
     		System.out.println("Please input the equation you want answered.");
     		equation = input.nextLine();
@@ -25,10 +26,15 @@ public class FracCalc {
     //if needed for add and subtracting fractions. Then, an if statement calls the operation needed
     //according to the operator. 
     public static String produceAnswer(String input){ 
+    	if (input.indexOf("/0") >= 0){
+    		return "ERROR: Cannot divide by 0.";
+    	} else if (input.indexOf(" ")< 0){
+    		return "ERROR: Your equation is an improper format. Please add spaces in between operation and operands.";
+    	}
         String operand1 ="";
         String operator ="";
         String operand2 ="";
-        String fracSum = null;
+        int[] fracSum = null;
         // String split through spaces
         String [] fracParts = input.split(" ");
         operand1 = fracParts[0];
@@ -39,27 +45,22 @@ public class FracCalc {
         operator = operator.trim();
         operand2 = operand2.trim();
         //parsed operands
-        int [] fracArr = parseOperand(operand1);
-        int [] fracArr2 = parseOperand(operand2);
         //operands turned to improper fractions
-        int[] improperFracArr = toImproperFrac(fracArr[0], fracArr[1], fracArr[2]);
-        int[] improperFracArr2 = toImproperFrac(fracArr2[0], fracArr2[1], fracArr2[2]);
+        int [] fracArr = toImproperFrac(parseOperand(operand1));
+        int [] fracArr2 = toImproperFrac(parseOperand(operand2));
         //improper fraction put through commonDenom to get the common denominator
-        int[] firstFracCD = commonDenom(improperFracArr, fracArr2[2]);
-    	int[] secFracCD = commonDenom(improperFracArr2, fracArr[2]);
-    	
         if (operator.equals("+")){
-        	fracSum = simplifyFrac(toMixedNum(addFrac(firstFracCD, secFracCD)));
+        	fracSum = addFrac(toCommonDenom(fracArr, fracArr2[1]), toCommonDenom(fracArr2, fracArr[1]));
         } else if (operator.equals("*")){
-        	fracSum = simplifyFrac(toMixedNum(multiplyFrac(improperFracArr, improperFracArr2)));
+        	fracSum = multiplyFrac(fracArr, fracArr2);
         } else if (operator.equals("/")){ 
-        	fracSum = simplifyFrac(toMixedNum(divideFrac(improperFracArr, improperFracArr2)));
+        	fracSum = divideFrac(fracArr, fracArr2);
         } else if (operator.equals("-")){
-        	fracSum = simplifyFrac(toMixedNum(subtractFrac(firstFracCD, secFracCD))); 
+        	fracSum = subtractFrac(toCommonDenom(fracArr, fracArr2[1]), toCommonDenom(fracArr2, fracArr[1])); 
         } else {
         	return "ERROR: Input is in an invalid format.";
         }
-		return fracSum;
+		return simplifyFrac(toMixedNum(fracSum));
     }
     //Parses the operand to separate the whole number, numerator, and denominator 
     //using substring and indexOf into different parts and returns it as an array. 
@@ -89,20 +90,21 @@ public class FracCalc {
     //Changes the accepted input, 3 integers, to change into an improper fraction.
     // Also makes sure the negative in a fraction doesn't get interpreted in changing
     //the whole number to the numerator. 
-    public static int[] toImproperFrac (int whole, int numerator, int denominator){
-    	int denomAndWhole = denominator*whole;
+    public static int[] toImproperFrac (int[] fracArr){
+    	int whole = fracArr[0];
+    	int numer = fracArr[1];
+    	int denom = fracArr[2];
+    	int denomAndWhole = denom*whole;
     	if(whole < 0){
-    		numerator = (-1*denomAndWhole) + numerator;
-    		numerator = -1 * numerator;
+    		numer = (-1*denomAndWhole) + numer;
+    		numer = -1 * numer;
     	} else {
-    		numerator = denomAndWhole + numerator;
+    		numer = denomAndWhole + numer;
     	}
-    	int[] improperFracArr = {numerator, denominator};
-		return improperFracArr;
+    	return new int[] {numer, denom};
     }
     //Simplifies and reduces the fraction by using greatest common factor and fixes negatives 
-    //that get passed through in the denominator or mixed number fraction part like -3_-4/-5
-    // and turns that to -3_4/5. Also concatenates the final string
+    //that get passed through in the denominator or mixed number fraction part also concatenates the final string
 	public static String simplifyFrac (int[] fracArrs){
 		String equation; 
 		int wholeNum = fracArrs[0];
@@ -111,6 +113,7 @@ public class FracCalc {
     	int gcf = gcf(numer, denom);
     	numer = numer / gcf;
     	denom = denom / gcf;
+    	//Checks for extra negatives that accidently get returned through after GCF like -3_-4/-5 and turns that to -3_4/5.
     	if(wholeNum < 0 && ((numer < 0 ) && (denom < 0))){
     		numer *= -1;
     		denom *= -1;
@@ -154,46 +157,41 @@ public class FracCalc {
     	int numer = fracArrs[0];
 		int wholeNum = numer/denom;
 		numer = fracArrs[0] % denom;
-		int[] mixedNumArr = {wholeNum, numer, denom};
-		return mixedNumArr;
+		return new int[] {wholeNum, numer, denom};
 	}
     //determines product of two fractions (or whole numbers) It accepts 
     //two operand arrays and returns an array of the product
     public static int[] multiplyFrac (int[] fracArr, int[] fracArr2){
     	int numerator = fracArr[0] * fracArr2[0];
     	int denom = fracArr[1] * fracArr2[1];
-    	int[] productArr = {numerator, denom};
-    	return productArr;
+    	return new int[] {numerator, denom};
     }
     //determines sum of two fractions (or whole numbers)It accepts 
     //two operand arrays and returns an array of the sum
     public static int[] addFrac (int[] fracArr, int[] fracArr2){
     	int numerator = fracArr[0] + fracArr2[0];
     	int denom = fracArr[1];
-    	int[] sumArr = {numerator, denom};
-    	return sumArr;
+    	return new int[] {numerator, denom};
     }
     //determines difference of two fractions (or whole numbers)It accepts 
     //two operand arrays and returns an array of the difference
     public static int[] subtractFrac(int[] fracArr, int[] fracArr2){
     	int numerator = fracArr[0] - fracArr2[0];
     	int denom = fracArr[1];
-    	int[] differenceArr = {numerator, denom};
-    	return differenceArr;
+    	return new int[] {numerator, denom};
     }
     //determines quotient of two fractions (or whole numbers)It accepts 
     //two operand arrays and returns an array of the quotient
     public static int[] divideFrac (int[] fracArr, int[] fracArr2){
     	int numerator = fracArr[0] * fracArr2[1];
     	int denom = fracArr[1] * fracArr2[0];
-    	int[] quotientArr = {numerator, denom};
-    	return quotientArr;
+    	return new int[] {numerator, denom};
     }
     //takes an array of one operand and integer which is the denominator
     //of the other operand and multiplies the denominator of the other 
     //fraction to create a common denominator. Returns an array of the 
     // created fraction with new common denominator
-    public static int[] commonDenom (int [] fracArr, int denomOfOtherFrac){
+    public static int[] toCommonDenom (int [] fracArr, int denomOfOtherFrac){
     	int newNumer;
     	int newDenom;
     	if (denomOfOtherFrac == fracArr[1]){
@@ -203,7 +201,6 @@ public class FracCalc {
     		newNumer = fracArr[0] * denomOfOtherFrac; 
     		newDenom = fracArr[1] * denomOfOtherFrac;
     	}
-    	int[] commonDen = {newNumer, newDenom};
-		return commonDen;
+    	return new int [] {newNumer, newDenom};
     }
 }
