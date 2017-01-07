@@ -15,7 +15,6 @@ public class FracCalc {
     	System.out.println("Please input the equation you want answered.");
     	String equation = input.nextLine();
     	while(!equation.equals("quit")){
-
     		System.out.println(produceAnswer(equation));
     		System.out.println("Please input the equation you want answered.");
     		equation = input.nextLine();
