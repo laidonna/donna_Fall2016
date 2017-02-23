@@ -1,0 +1,39 @@
+//import java.io.*;
+//import java.util.Scanner;
+//
+//public class TempFileDiff {
+//
+//	public static void main(String[] args) throws FileNotFoundException {
+//		Scanner console = new Scanner(new File("src/weather.txt"));		
+//		double change;
+//		double first, next;
+//		first = console.nextDouble();
+//		next = first;
+//		while (console.hasNextDouble()){ 
+//			first = console.nextDouble(); 
+//			change = first - next;
+//			System.out.println(next + " to " + first + ", change = " + change);
+//		}
+//	}
+//}
+
+
+import java.io.*;
+import java.util.Scanner;
+public class TempFileDiff {
+
+	public static void main(String[] args) throws FileNotFoundException{
+		Scanner input = new Scanner (new File ("./weather.txt"));
+		
+		double temp1 = input.nextDouble();
+		double temp2 = temp1;
+		while (input.hasNextDouble()){
+		
+			temp1 = input.nextDouble();
+			System.out.println("change = " + (temp1-temp2));
+		}
+		input.close();
+
+	}
+
+}

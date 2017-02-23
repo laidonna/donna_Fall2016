@@ -1,0 +1,15 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class TempFileDiff {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner console = new Scanner(new File("weather.txt"));		
+		double sum = 0.0;
+		while (console.hasNextDouble()){
+			sum = sum + console.nextDouble();
+			System.out.println(sum *-1);
+		}
+	}
+
+}

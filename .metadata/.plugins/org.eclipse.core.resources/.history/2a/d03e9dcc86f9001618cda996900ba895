@@ -1,0 +1,19 @@
+import java.io.*;
+import java.util.Scanner;
+
+public class TempFileDiff {
+
+	public static void main(String[] args) throws FileNotFoundException {
+		Scanner console = new Scanner(new File("src/weather.txt"));		
+		double change = 0.0;
+		double first, second;
+		first = console.nextDouble(); 
+		second = console.nextDouble();
+		while (console.hasNextDouble()){
+			change = second - first;
+			System.out.println(first + " to " + second + ", change = " + change);
+			first = console.nextDouble();
+			second = first; 
+		}
+	}
+}
