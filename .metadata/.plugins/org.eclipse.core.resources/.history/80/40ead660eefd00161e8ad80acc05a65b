@@ -9,8 +9,6 @@ import java.util.Scanner;
 public class TextExcel{
 
 	public static void main(String[] args){
-	    Scanner input = new Scanner(System.in);
-	    String cellDeclaration = input.nextLine();
-	    System.out.println(Spreadsheet.processCommand(cellDeclaration));
+	    // Add your command loop here
 	}
 }
