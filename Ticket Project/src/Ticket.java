@@ -12,6 +12,6 @@ abstract class Ticket {
 	
 	public Ticket(int number){
 		number = this.number;
-		double price = getPrice();
+		price = getPrice();
 	}
 }

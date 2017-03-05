@@ -3,28 +3,29 @@ package textExcel;
 // Update this file with your own code.
 
 public class Spreadsheet implements Grid{
-	
+	private EmptyCell[][] sheet; 
 	public Spreadsheet(){
-		EmptyCell[][] spreadsheet = new EmptyCell[20][12]; 
+		sheet = new EmptyCell[20][12];  
 		
 	}
 
 	@Override
 	public String processCommand(String command){
-		// TODO Auto-generated method stub
-		return null;
+//		SpreadsheetLocation sLoc = new SpreadsheetLocation(command);
+//		command = sLoc.getRow() + " " + sLoc.getCol(); 
+		return command;
 	}
 
 	@Override
 	public int getRows(){
-		// TODO Auto-generated method stub
-		return 0;
+		int rows = sheet.length;
+		return rows;
 	}
 
 	@Override
 	public int getCols(){
-		// TODO Auto-generated method stub
-		return 0;
+		int columns = sheet[0].length;
+		return columns;
 	}
 
 	@Override
