@@ -11,6 +11,8 @@ public class Spreadsheet implements Grid{
 
 	@Override
 	public String processCommand(String command){
+//		SpreadsheetLocation sLoc = new SpreadsheetLocation(command);
+//		command = sLoc.getRow() + " " + sLoc.getCol(); 
 		return command;
 	}
 
