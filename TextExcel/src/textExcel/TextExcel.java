@@ -9,14 +9,17 @@ import java.util.Scanner;
 public class TextExcel{
 
 	public static void main(String[] args){
-		Spreadsheet sheet = new Spreadsheet();
 	    Scanner input = new Scanner(System.in);
+	    System.out.println("input yo stuff");
 	    String cellDeclaration = input.nextLine();
-	    while(!input.equals("quit")){
+	    Spreadsheet sheet = new Spreadsheet();
+	    while(!cellDeclaration.equals("quit")){
 	    	cellDeclaration = input.nextLine();
 	 	    System.out.println(sheet.processCommand(cellDeclaration));
 		    cellDeclaration = input.nextLine();
 	    }
-	   
+	    TestsALL.Helper th = new TestsALL.Helper();
+	    System.out.println(th.getText());
+	    System.out.print(sheet.getGridText());
 	}
 }

@@ -3,12 +3,14 @@ package textExcel;
 // Update this file with your own code.
 
 public class Spreadsheet implements Grid{
-	private EmptyCell[][] sheet; 
+	private Cell[][] sheet; 
+	private String alphabet = "ABCDEFGHIJKL";
 	public Spreadsheet(){
 		sheet = new EmptyCell[20][12];  
 		
 	}
 
+	
 	@Override
 	public String processCommand(String command){
 		return command;
@@ -34,8 +36,15 @@ public class Spreadsheet implements Grid{
 
 	@Override
 	public String getGridText(){
-		// TODO Auto-generated method stub
-		return null;
+		String a ="   ";
+		String restOfCells;
+		return a;
+		for(int j = 0; j < sheet.length; j++){
+			a += "|" + alphabet.charAt(j)+"         ";
+			for (int k = 0; k < sheet[j].length; k++){
+				sheet[k][j] = EmptyCell.CellText();
+			}
+		}
 	}
 
 }
