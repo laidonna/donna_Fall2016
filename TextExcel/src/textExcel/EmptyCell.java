@@ -1,17 +1,20 @@
 package textExcel;
 
 public class EmptyCell implements Cell {
+	String empty;
+	public EmptyCell(){
+	}
 
 	@Override
 	public String abbreviatedCellText() {
 		// TODO Auto-generated method stub
-		return "";
+		return "          ";
 	}
 
 	@Override
 	public String fullCellText() {
 		// TODO Auto-generated method stub
-		return "";
+		return "\"\"";
 	}
-
+	
 }

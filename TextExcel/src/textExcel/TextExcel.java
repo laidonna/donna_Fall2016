@@ -20,6 +20,6 @@ public class TextExcel{
 	    }
 	    TestsALL.Helper th = new TestsALL.Helper();
 	    System.out.println(th.getText());
-	    System.out.print(sheet.getGridText());
+	    System.out.print(sheet.getGridText().toString());
 	}
 }
