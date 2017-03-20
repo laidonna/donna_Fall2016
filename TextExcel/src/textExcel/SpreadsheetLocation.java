@@ -11,7 +11,13 @@ public class SpreadsheetLocation implements Location{
 
     @Override
     public int getCol(){
-    	return column - 65; 
+    	int col;
+    	if (column > 90){
+    		col = column - 97;
+    	}else{
+    		col = column - 65; 
+    	}
+    	return col;
     }
     
     public SpreadsheetLocation(String cellName){

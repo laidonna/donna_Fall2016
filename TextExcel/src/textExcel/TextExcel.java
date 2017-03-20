@@ -10,16 +10,15 @@ public class TextExcel{
 
 	public static void main(String[] args){
 	    Scanner input = new Scanner(System.in);
-	    System.out.println("input yo stuff");
+	    //System.out.println("input yo stuff");
 	    String cellDeclaration = input.nextLine();
-	    Spreadsheet sheet = new Spreadsheet();
+	    Spreadsheet sprsheet = new Spreadsheet();
 	    while(!cellDeclaration.equals("quit")){
-	    	cellDeclaration = input.nextLine();
-	 	    System.out.println(sheet.processCommand(cellDeclaration));
+	 	    System.out.println(sprsheet.processCommand(cellDeclaration));
 		    cellDeclaration = input.nextLine();
 	    }
 	    TestsALL.Helper th = new TestsALL.Helper();
-	    System.out.println(th.getText());
-	    System.out.print(sheet.getGridText().toString());
+//	    System.out.println(th.getText());
+//	    System.out.print(sprsheet.getGridText().toString());
 	}
 }
