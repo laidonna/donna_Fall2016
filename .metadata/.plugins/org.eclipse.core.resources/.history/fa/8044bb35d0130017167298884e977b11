@@ -1,0 +1,125 @@
+package textExcel;
+
+// Update this file with your own code.
+
+public class Spreadsheet implements Grid{
+	private Cell[][] sheet;
+	private String alphabet = "ABCDEFGHIJKL";
+	
+	public Spreadsheet(){
+		sheet = new Cell[20][12];  
+		for (int i = 0; i < 20; i++) {
+			for (int j = 0; j < 12; j++) {
+				sheet[i][j] = new EmptyCell();
+			}
+		}
+	}
+	
+	@Override
+	public String processCommand(String command){
+		
+		SpreadsheetLocation loca;
+		int row;
+		int col;
+		String location = "";
+		String[] commandSplit = command.split(" ");
+
+		if (command.equals("")){
+			return "";
+		} else if(command.equalsIgnoreCase("clear")){
+			clearCells();
+			return getGridText();	
+		} else if (command.length() <= 3) {
+			loca = new SpreadsheetLocation(command);
+
+			return sheet[loca.getRow()][loca.getCol()].fullCellText();
+		}else if((commandSplit[0].equalsIgnoreCase("clear")) && ((commandSplit[1].length() <= 3)&&(commandSplit[1].length()>0))){
+
+			location = commandSplit[1];
+			
+			clearOne(location.toUpperCase());
+			
+//			loca = new SpreadsheetLocation(location);
+//			sheet[loca.getRow()][loca.getCol()] = new EmptyCell();
+			return getGridText();
+		
+		}else if(commandSplit[1].equals("=")){
+			location = commandSplit[0];
+			loca = new SpreadsheetLocation(location);
+			row = loca.getRow();
+			col = loca.getCol();
+			String userIn;
+			userIn = command.substring(command.indexOf("\""), command.length());
+			//System.out.println(userIn);
+			//System.out.println(row + " " + col);
+			//userIn = userIn.substring(1, userIn.length()-1);
+			sheet[row][col] = new TextCell(userIn); 
+
+			//sheet[row][col] = new TextCell("tacocat");
+			//System.out.println(sheet[row][col].toString());
+			return getGridText();
+		}else{
+			loca = new SpreadsheetLocation(command);
+			Cell getCell = sheet[loca.getRow()][loca.getCol()];
+			return getCell.toString();
+		}
+	}
+
+	public void clearOne(String location){
+		SpreadsheetLocation loca = new SpreadsheetLocation(location);
+		sheet[loca.getRow()][loca.getCol()] = new EmptyCell();
+	}
+	
+	
+	public void clearCells(){
+		for (int i = 0; i < 20; i++) {
+			for (int j = 0; j < 12; j++) {
+				sheet[i][j] = new EmptyCell();
+			}
+		}
+	}
+	
+
+
+	@Override
+	public int getRows(){
+		int rows = sheet.length;
+		return rows;
+	}
+
+	@Override
+	public int getCols(){
+		int columns = sheet[0].length;
+		return columns;
+	}
+
+	@Override
+	public Cell getCell(Location loc){
+		int r = loc.getRow();
+		int c = loc.getCol();
+		return sheet[r][c];
+	}
+
+	@Override
+	public String getGridText(){
+		String firstRow ="   ";
+		String newLn = "";
+		for(int l = 0; l < sheet[0].length; l++){
+			firstRow += "|" + alphabet.charAt(l)+"         ";
+		}
+		firstRow += "|";
+		for(int i = 0; i < sheet.length; i++){
+			if (i < 9){
+				newLn += (i + 1) + "  |" ;
+			}else{
+				newLn += (i + 1) + " |";
+			}
+			for(int l = 0; l < sheet[0].length; l++){
+				newLn += sheet[i][l].abbreviatedCellText()+ "|";
+			}
+			newLn+= "\n";
+		}
+		return firstRow + "\n"  +newLn ; 
+	}
+
+}

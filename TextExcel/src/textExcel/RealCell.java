@@ -1,17 +1,24 @@
 package textExcel;
 
 public class RealCell implements Cell {
-
+	private String strContents;
 	@Override
 	public String abbreviatedCellText() {
 		// TODO Auto-generated method stub
-		return null;
+		return "          ";
 	}
 
 	@Override
 	public String fullCellText() {
 		// TODO Auto-generated method stub
-		return null;
+		return strContents;
 	}
-
+	
+	public RealCell(String contents){
+		strContents = contents;
+	}
+	
+	public double getDoubleValue(String content){
+		return Double.parseDouble(content);
+	}
 }

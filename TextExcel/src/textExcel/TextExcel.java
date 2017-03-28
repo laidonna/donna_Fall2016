@@ -14,11 +14,20 @@ public class TextExcel{
 	    String cellDeclaration = input.nextLine();
 	    Spreadsheet sprsheet = new Spreadsheet();
 	    while(!cellDeclaration.equals("quit")){
-	 	    System.out.println(sprsheet.processCommand(cellDeclaration));
-		    cellDeclaration = input.nextLine();
+		    
+	    	try { 
+	    		System.out.println(sprsheet.processCommand(cellDeclaration));
+	    	} catch (NumberFormatException e) { 
+		        System.out.println("Not a valid input value");
+		        
+			} catch (IndexOutOfBoundsException e){
+				System.out.println("Not a valid input value");
+		    }
+	    	cellDeclaration = input.nextLine();
 	    }
-	    TestsALL.Helper th = new TestsALL.Helper();
+	    
+	    // TestsALL.Helper th = new TestsALL.Helper();
 //	    System.out.println(th.getText());
-//	    System.out.print(sprsheet.getGridText().toString());
+	    //System.out.print(sprsheet.getGridText().toString());
 	}
 }

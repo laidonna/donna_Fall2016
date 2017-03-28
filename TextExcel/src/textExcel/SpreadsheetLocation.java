@@ -6,7 +6,7 @@ public class SpreadsheetLocation implements Location{
 	
     @Override
     public int getRow(){
-        return row -= 1;
+        return row - 1;
     }
 
     @Override
